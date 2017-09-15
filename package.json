@@ -1,0 +1,12 @@
+{
+  "name": "mara-forms",
+  "version": "0.2.0",
+  "license": "MIT",
+  "dependencies": {
+    "mara": "^0.2.0",
+    "ally.js": "^1.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1"
+  }
+}
