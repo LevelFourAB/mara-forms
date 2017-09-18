@@ -26,8 +26,8 @@ function traverse(root, onInput) {
 	const children = root.children;
 	for(let i=0, n=children.length; i<n; i++) {
 		const child = children[i];
-		if(child instanceof FormInput || child instanceof FormSection) {
-			onInput(child);
+		if(FormInput.isInstance(child) || FormSection.isInstance(child)) {
+			onInput(child, true);
 
 			continue;
 		} else if(child instanceof HTMLElement) {
@@ -39,7 +39,7 @@ function traverse(root, onInput) {
 					// First check if this input is ignored
 					const ignore = child.getAttribute('mara-ignore') || child.getAttribute('data-mara-ignore');
 					if(ignore !== 'true') {
-						onInput(child);
+						onInput(child, false);
 					}
 				}
 			}
@@ -55,8 +55,8 @@ function traverse(root, onInput) {
 export const FormSection = Mixin(superclass => class extends superclass {
 	toData() {
 		const result = {};
-		traverse(this.sectionInputRoot || this, input => {
-			if(input instanceof FormInput || input instanceof FormSection) {
+		traverse(this.sectionInputRoot || this, (input, custom) => {
+			if(custom) {
 				result[input.name] = input.toData();
 			} else {
 				const type = input.getAttribute('mara-type') || input.getAttribute('data-mara-type') || input.type;
@@ -102,9 +102,9 @@ export const FormSection = Mixin(superclass => class extends superclass {
 	}
 
 	fromData(data) {
-		traverse(this.sectionInputRoot || this, input => {
+		traverse(this.sectionInputRoot || this, (input, custom) => {
 			const name = input.name;
-			if(input instanceof FormInput || input instanceof FormSection) {
+			if(custom) {
 				input.fromData(data[name]);
 			} else {
 				const type = input.getAttribute('mara-type') || input.getAttribute('data-mara-type') || input.type;
