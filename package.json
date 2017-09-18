@@ -1,9 +1,9 @@
 {
   "name": "mara-forms",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "dependencies": {
-    "mara": "^0.2.0",
+    "mara": "^0.3.0",
     "ally.js": "^1.4.1"
   },
   "devDependencies": {
