@@ -10,6 +10,8 @@ let markAsChanged = function() {
 
 export class MaraForm extends HTMLCustomElement.with(FormSection, DOMReady) {
 	createdCallback() {
+		super.createdCallback();
+
 		delegate(this, 'input', 'input, select, textarea', markAsChanged);
 	}
 
