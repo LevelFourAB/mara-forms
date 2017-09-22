@@ -2,6 +2,7 @@
   "name": "mara-forms",
   "version": "0.3.0",
   "license": "MIT",
+  "main": "api.js",
   "dependencies": {
     "mara": "^0.3.0",
     "ally.js": "^1.4.1"

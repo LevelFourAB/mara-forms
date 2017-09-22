@@ -1,7 +1,7 @@
 'use strict';
 
 import { HTMLCustomElement, DOMReady, define } from 'mara/ce';
-import { FormSection } from './';
+import { FormSection } from './api';
 import delegate from 'mara/events/delegate';
 
 let markAsChanged = function() {
