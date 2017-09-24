@@ -1,7 +1,9 @@
 {
   "name": "mara-forms",
-  "version": "0.3.0",
+  "version": "0.4.0",
+  "description": "Custom Elements for form handling",
   "license": "MIT",
+  "repository": "LevelFourAB/mara-forms",
   "main": "api.js",
   "dependencies": {
     "mara": "^1.0.0",
