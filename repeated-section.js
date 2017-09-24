@@ -1,11 +1,11 @@
 'use strict';
 
-import { HTMLCustomElement, DOMReady, define } from 'mara/ce';
+import { HTMLCustomElement, ChildrenReady, define } from 'mara';
 import { FormSection } from './api';
 import delegate from 'mara/events/delegate';
 import firstTabbable from 'ally.js/query/first-tabbable';
 
-export class RepeatedSection extends HTMLCustomElement.with(FormSection, DOMReady) {
+export class RepeatedSection extends HTMLCustomElement.with(FormSection, ChildrenReady) {
 	createdCallback() {
 		super.createdCallback();
 
@@ -32,8 +32,8 @@ export class RepeatedSection extends HTMLCustomElement.with(FormSection, DOMRead
 		});
 	}
 
-	domReadyCallback() {
-		super.domReadyCallback();
+	childrenReadyCallback() {
+		super.childrenReadyCallback();
 
 		let child = this.firstElementChild;
 		while(child) {

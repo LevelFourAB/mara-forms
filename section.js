@@ -1,6 +1,6 @@
 'use strict';
 
-import { HTMLCustomElement, define } from 'mara/ce';
+import { HTMLCustomElement, define } from 'mara';
 import { FormSection } from './api';
 
 export class Section extends HTMLCustomElement.with(FormSection) {

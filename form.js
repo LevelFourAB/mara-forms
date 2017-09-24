@@ -1,6 +1,6 @@
 'use strict';
 
-import { HTMLCustomElement, DOMReady, define } from 'mara/ce';
+import { HTMLCustomElement, ChildrenReady, define } from 'mara';
 import { FormSection } from './api';
 import delegate from 'mara/events/delegate';
 
@@ -8,7 +8,7 @@ let markAsChanged = function() {
 	this.classList.add('mara-changed');
 };
 
-export class MaraForm extends HTMLCustomElement.with(FormSection, DOMReady) {
+export class MaraForm extends HTMLCustomElement.with(FormSection, ChildrenReady) {
 	createdCallback() {
 		super.createdCallback();
 
@@ -29,7 +29,9 @@ export class MaraForm extends HTMLCustomElement.with(FormSection, DOMReady) {
 		}
 	}
 
-	domReadyCallback() {
+	childrenReadyCallback() {
+		super.childrenReadyCallback();
+
 		// Create the wrapping form
 		this.wrapper = document.createElement('form');
 		this.wrapper.addEventListener('submit', e => {

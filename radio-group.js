@@ -1,6 +1,6 @@
 'use strict';
 
-import { HTMLCustomElement, define } from 'mara/ce';
+import { HTMLCustomElement, define } from 'mara';
 import { adapterFor, FormInput } from './api';
 
 export class RadioGroup extends HTMLCustomElement.with(FormInput) {

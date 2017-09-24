@@ -1,6 +1,6 @@
 'use strict';
 
-import { Mixin } from 'mara/ce';
+import { Mixin } from 'mara';
 
 let empty = function(value) { return value; };
 
